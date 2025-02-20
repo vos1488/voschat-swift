@@ -1,0 +1,634 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93D034812D6726FD0022570E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034802D6726FD0022570E /* AppDelegate.swift */; };
+		93D034832D6726FD0022570E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034822D6726FD0022570E /* SceneDelegate.swift */; };
+		93D034852D6726FD0022570E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034842D6726FD0022570E /* ViewController.swift */; };
+		93D034882D6726FD0022570E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D034862D6726FD0022570E /* Main.storyboard */; };
+		93D0348B2D6726FD0022570E /* voschat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93D034892D6726FD0022570E /* voschat.xcdatamodeld */; };
+		93D0348D2D6727000022570E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D0348C2D6727000022570E /* Assets.xcassets */; };
+		93D034902D6727000022570E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D0348E2D6727000022570E /* LaunchScreen.storyboard */; };
+		93D0349B2D6727000022570E /* voschatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D0349A2D6727000022570E /* voschatTests.swift */; };
+		93D034A52D6727000022570E /* voschatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034A42D6727000022570E /* voschatUITests.swift */; };
+		93D034A72D6727000022570E /* voschatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034A62D6727000022570E /* voschatUITestsLaunchTests.swift */; };
+		1234567890ABCDE1 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE3 /* Models.swift */; };
+		1234567890ABCDE2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE4 /* NetworkManager.swift */; };
+		1234567890ABCDE6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE5 /* InfoViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93D034972D6727000022570E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93D034752D6726FD0022570E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D0347C2D6726FD0022570E;
+			remoteInfo = voschat;
+		};
+		93D034A12D6727000022570E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93D034752D6726FD0022570E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D0347C2D6726FD0022570E;
+			remoteInfo = voschat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		93D0347D2D6726FD0022570E /* voschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = voschat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D034802D6726FD0022570E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		93D034822D6726FD0022570E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		93D034842D6726FD0022570E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93D034872D6726FD0022570E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		93D0348A2D6726FD0022570E /* voschat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = voschat.xcdatamodel; sourceTree = "<group>"; };
+		93D0348C2D6727000022570E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93D0348F2D6727000022570E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93D034912D6727000022570E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93D034962D6727000022570E /* voschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = voschatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D0349A2D6727000022570E /* voschatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voschatTests.swift; sourceTree = "<group>"; };
+		93D034A02D6727000022570E /* voschatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = voschatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D034A42D6727000022570E /* voschatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voschatUITests.swift; sourceTree = "<group>"; };
+		93D034A62D6727000022570E /* voschatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voschatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1234567890ABCDE3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1234567890ABCDE4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1234567890ABCDE5 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93D0347A2D6726FD0022570E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D034932D6727000022570E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D0349D2D6727000022570E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93D034742D6726FD0022570E = {
+			isa = PBXGroup;
+			children = (
+				93D0347F2D6726FD0022570E /* voschat */,
+				93D034992D6727000022570E /* voschatTests */,
+				93D034A32D6727000022570E /* voschatUITests */,
+				93D0347E2D6726FD0022570E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93D0347E2D6726FD0022570E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93D0347D2D6726FD0022570E /* voschat.app */,
+				93D034962D6727000022570E /* voschatTests.xctest */,
+				93D034A02D6727000022570E /* voschatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93D0347F2D6726FD0022570E /* voschat */ = {
+			isa = PBXGroup;
+			children = (
+				93D034802D6726FD0022570E /* AppDelegate.swift */,
+				93D034822D6726FD0022570E /* SceneDelegate.swift */,
+				93D034842D6726FD0022570E /* ViewController.swift */,
+				1234567890ABCDE3 /* Models.swift */,
+				1234567890ABCDE4 /* NetworkManager.swift */,
+				1234567890ABCDE5 /* InfoViewController.swift */,
+				93D034862D6726FD0022570E /* Main.storyboard */,
+				93D0348C2D6727000022570E /* Assets.xcassets */,
+				93D0348E2D6727000022570E /* LaunchScreen.storyboard */,
+				93D034912D6727000022570E /* Info.plist */,
+				93D034892D6726FD0022570E /* voschat.xcdatamodeld */,
+			);
+			path = voschat;
+			sourceTree = "<group>";
+		};
+		93D034992D6727000022570E /* voschatTests */ = {
+			isa = PBXGroup;
+			children = (
+				93D0349A2D6727000022570E /* voschatTests.swift */,
+			);
+			path = voschatTests;
+			sourceTree = "<group>";
+		};
+		93D034A32D6727000022570E /* voschatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				93D034A42D6727000022570E /* voschatUITests.swift */,
+				93D034A62D6727000022570E /* voschatUITestsLaunchTests.swift */,
+			);
+			path = voschatUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93D0347C2D6726FD0022570E /* voschat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D034AA2D6727000022570E /* Build configuration list for PBXNativeTarget "voschat" */;
+			buildPhases = (
+				93D034792D6726FD0022570E /* Sources */,
+				93D0347A2D6726FD0022570E /* Frameworks */,
+				93D0347B2D6726FD0022570E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = voschat;
+			productName = voschat;
+			productReference = 93D0347D2D6726FD0022570E /* voschat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93D034952D6727000022570E /* voschatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D034AD2D6727000022570E /* Build configuration list for PBXNativeTarget "voschatTests" */;
+			buildPhases = (
+				93D034922D6727000022570E /* Sources */,
+				93D034932D6727000022570E /* Frameworks */,
+				93D034942D6727000022570E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93D034982D6727000022570E /* PBXTargetDependency */,
+			);
+			name = voschatTests;
+			productName = voschatTests;
+			productReference = 93D034962D6727000022570E /* voschatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		93D0349F2D6727000022570E /* voschatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D034B02D6727000022570E /* Build configuration list for PBXNativeTarget "voschatUITests" */;
+			buildPhases = (
+				93D0349C2D6727000022570E /* Sources */,
+				93D0349D2D6727000022570E /* Frameworks */,
+				93D0349E2D6727000022570E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93D034A22D6727000022570E /* PBXTargetDependency */,
+			);
+			name = voschatUITests;
+			productName = voschatUITests;
+			productReference = 93D034A02D6727000022570E /* voschatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93D034752D6726FD0022570E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					93D0347C2D6726FD0022570E = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					93D034952D6727000022570E = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 93D0347C2D6726FD0022570E;
+					};
+					93D0349F2D6727000022570E = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 93D0347C2D6726FD0022570E;
+					};
+				};
+			};
+			buildConfigurationList = 93D034782D6726FD0022570E /* Build configuration list for PBXProject "voschat" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93D034742D6726FD0022570E;
+			productRefGroup = 93D0347E2D6726FD0022570E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93D0347C2D6726FD0022570E /* voschat */,
+				93D034952D6727000022570E /* voschatTests */,
+				93D0349F2D6727000022570E /* voschatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93D0347B2D6726FD0022570E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D034902D6727000022570E /* LaunchScreen.storyboard in Resources */,
+				93D0348D2D6727000022570E /* Assets.xcassets in Resources */,
+				93D034882D6726FD0022570E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D034942D6727000022570E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D0349E2D6727000022570E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93D034792D6726FD0022570E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D0348B2D6726FD0022570E /* voschat.xcdatamodeld in Sources */,
+				93D034852D6726FD0022570E /* ViewController.swift in Sources */,
+				93D034812D6726FD0022570E /* AppDelegate.swift in Sources */,
+				93D034832D6726FD0022570E /* SceneDelegate.swift in Sources */,
+				1234567890ABCDE1 /* Models.swift in Sources */,
+				1234567890ABCDE2 /* NetworkManager.swift in Sources */,
+				1234567890ABCDE6 /* InfoViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D034922D6727000022570E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D0349B2D6727000022570E /* voschatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D0349C2D6727000022570E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D034A52D6727000022570E /* voschatUITests.swift in Sources */,
+				93D034A72D6727000022570E /* voschatUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93D034982D6727000022570E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D0347C2D6726FD0022570E /* voschat */;
+			targetProxy = 93D034972D6727000022570E /* PBXContainerItemProxy */;
+		};
+		93D034A22D6727000022570E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D0347C2D6726FD0022570E /* voschat */;
+			targetProxy = 93D034A12D6727000022570E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93D034862D6726FD0022570E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93D034872D6726FD0022570E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		93D0348E2D6727000022570E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93D0348F2D6727000022570E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93D034A82D6727000022570E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93D034A92D6727000022570E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93D034AB2D6727000022570E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = voschat/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = su.vos9.voschat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93D034AC2D6727000022570E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = voschat/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = su.vos9.voschat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		93D034AE2D6727000022570E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = su.vos9.voschatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/voschat.app/voschat";
+			};
+			name = Debug;
+		};
+		93D034AF2D6727000022570E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = su.vos9.voschatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/voschat.app/voschat";
+			};
+			name = Release;
+		};
+		93D034B12D6727000022570E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = su.vos9.voschatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = voschat;
+			};
+			name = Debug;
+		};
+		93D034B22D6727000022570E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = su.vos9.voschatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = voschat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93D034782D6726FD0022570E /* Build configuration list for PBXProject "voschat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D034A82D6727000022570E /* Debug */,
+				93D034A92D6727000022570E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D034AA2D6727000022570E /* Build configuration list for PBXNativeTarget "voschat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D034AB2D6727000022570E /* Debug */,
+				93D034AC2D6727000022570E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D034AD2D6727000022570E /* Build configuration list for PBXNativeTarget "voschatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D034AE2D6727000022570E /* Debug */,
+				93D034AF2D6727000022570E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D034B02D6727000022570E /* Build configuration list for PBXNativeTarget "voschatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D034B12D6727000022570E /* Debug */,
+				93D034B22D6727000022570E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		93D034892D6726FD0022570E /* voschat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93D0348A2D6726FD0022570E /* voschat.xcdatamodel */,
+			);
+			currentVersion = 93D0348A2D6726FD0022570E /* voschat.xcdatamodel */;
+			path = voschat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 93D034752D6726FD0022570E /* Project object */;
+}

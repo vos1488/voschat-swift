@@ -1,0 +1,19 @@
+{
+	"name": "xcode build server",
+	"version": "0.2",
+	"bspVersion": "2.0",
+	"languages": [
+		"c",
+		"cpp",
+		"objective-c",
+		"objective-cpp",
+		"swift"
+	],
+	"argv": [
+		"/usr/local/bin/xcode-build-server"
+	],
+	"workspace": "/Volumes/\u0411\u0435\u0437 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f/voschat/voschat.xcodeproj/project.xcworkspace",
+	"build_root": "/Users/vos9/Library/Developer/Xcode/DerivedData/voschat-gjrmotrlqznsrvaeeitthchyiwia",
+	"scheme": "voschat",
+	"kind": "xcode"
+}
