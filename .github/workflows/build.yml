@@ -1,0 +1,63 @@
+name: Build IPA and Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby environment
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+
+      - name: Install Fastlane
+        run: gem install fastlane
+
+      - name: Build IPA
+        run: fastlane gym --scheme "YourSchemeName"
+
+      - name: Archive IPA
+        uses: actions/upload-artifact@v2
+        with:
+          name: ios-app
+          path: ./path-to-your-ipa
+
+  release:
+    needs: build
+    runs-on: macos-latest
+
+    steps:
+      - name: Download IPA
+        uses: actions/download-artifact@v2
+        with:
+          name: ios-app
+          path: ./path-to-your-ipa
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload IPA to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./path-to-your-ipa/YourApp.ipa
+          asset_name: YourApp.ipa
+          asset_content_type: application/octet-stream
