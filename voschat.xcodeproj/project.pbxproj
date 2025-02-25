@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1234567890ABCDE1 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE3 /* Models.swift */; };
+		1234567890ABCDE2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE4 /* NetworkManager.swift */; };
+		1234567890ABCDE6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE5 /* InfoViewController.swift */; };
 		93D034812D6726FD0022570E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034802D6726FD0022570E /* AppDelegate.swift */; };
 		93D034832D6726FD0022570E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034822D6726FD0022570E /* SceneDelegate.swift */; };
 		93D034852D6726FD0022570E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034842D6726FD0022570E /* ViewController.swift */; };
@@ -14,12 +17,6 @@
 		93D0348B2D6726FD0022570E /* voschat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93D034892D6726FD0022570E /* voschat.xcdatamodeld */; };
 		93D0348D2D6727000022570E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D0348C2D6727000022570E /* Assets.xcassets */; };
 		93D034902D6727000022570E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D0348E2D6727000022570E /* LaunchScreen.storyboard */; };
-		93D0349B2D6727000022570E /* voschatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D0349A2D6727000022570E /* voschatTests.swift */; };
-		93D034A52D6727000022570E /* voschatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034A42D6727000022570E /* voschatUITests.swift */; };
-		93D034A72D6727000022570E /* voschatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D034A62D6727000022570E /* voschatUITestsLaunchTests.swift */; };
-		1234567890ABCDE1 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE3 /* Models.swift */; };
-		1234567890ABCDE2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE4 /* NetworkManager.swift */; };
-		1234567890ABCDE6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234567890ABCDE5 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1234567890ABCDE3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1234567890ABCDE4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1234567890ABCDE5 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		93D0347D2D6726FD0022570E /* voschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = voschat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D034802D6726FD0022570E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93D034822D6726FD0022570E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,13 +50,7 @@
 		93D0348F2D6727000022570E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93D034912D6727000022570E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93D034962D6727000022570E /* voschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = voschatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		93D0349A2D6727000022570E /* voschatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voschatTests.swift; sourceTree = "<group>"; };
 		93D034A02D6727000022570E /* voschatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = voschatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		93D034A42D6727000022570E /* voschatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voschatUITests.swift; sourceTree = "<group>"; };
-		93D034A62D6727000022570E /* voschatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voschatUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1234567890ABCDE3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		1234567890ABCDE4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		1234567890ABCDE5 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				93D0347F2D6726FD0022570E /* voschat */,
-				93D034992D6727000022570E /* voschatTests */,
-				93D034A32D6727000022570E /* voschatUITests */,
 				93D0347E2D6726FD0022570E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,23 +112,6 @@
 				93D034892D6726FD0022570E /* voschat.xcdatamodeld */,
 			);
 			path = voschat;
-			sourceTree = "<group>";
-		};
-		93D034992D6727000022570E /* voschatTests */ = {
-			isa = PBXGroup;
-			children = (
-				93D0349A2D6727000022570E /* voschatTests.swift */,
-			);
-			path = voschatTests;
-			sourceTree = "<group>";
-		};
-		93D034A32D6727000022570E /* voschatUITests */ = {
-			isa = PBXGroup;
-			children = (
-				93D034A42D6727000022570E /* voschatUITests.swift */,
-				93D034A62D6727000022570E /* voschatUITestsLaunchTests.swift */,
-			);
-			path = voschatUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D0349B2D6727000022570E /* voschatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D034A52D6727000022570E /* voschatUITests.swift in Sources */,
-				93D034A72D6727000022570E /* voschatUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
