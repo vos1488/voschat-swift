@@ -12,8 +12,8 @@
 	"argv": [
 		"/usr/local/bin/xcode-build-server"
 	],
-	"workspace": "/Volumes/\u0411\u0435\u0437 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f/voschat/voschat.xcodeproj/project.xcworkspace",
-	"build_root": "/Users/vos9/Library/Developer/Xcode/DerivedData/voschat-gjrmotrlqznsrvaeeitthchyiwia",
+	"workspace": "/Users/vos9/Desktop/voschat-swift/voschat.xcodeproj/project.xcworkspace",
+	"build_root": "/Users/vos9/Library/Developer/Xcode/DerivedData/voschat-dqbksicxrrtcpthecvfzlnbrchno",
 	"scheme": "voschat",
 	"kind": "xcode"
 }

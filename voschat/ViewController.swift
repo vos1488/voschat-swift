@@ -7,12 +7,18 @@
 
 import UIKit
 import Foundation
+import UniformTypeIdentifiers
 
 class MessageCell: UITableViewCell {
     private let bubbleView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 16
         view.clipsToBounds = true
+        // Добавляем тень
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowRadius = 4
         return view
     }()
     
@@ -35,12 +41,22 @@ class MessageCell: UITableViewCell {
         button.setTitleColor(.systemBlue, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14)
         button.layer.cornerRadius = 8
-        button.backgroundColor = .secondarySystemBackground
+        button.backgroundColor = .tertiarySystemBackground
         button.isHidden = true
+        // Добавляем эффект нажатия
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 1)
+        button.layer.shadowOpacity = 0.1
+        button.layer.shadowRadius = 2
         return button
     }()
     
     weak var delegate: MessageCellDelegate?
+    
+    private var leadingConstraint: NSLayoutConstraint?
+    private var trailingConstraint: NSLayoutConstraint?
+    private var timeLabelLeadingConstraint: NSLayoutConstraint?
+    private var timeLabelTrailingConstraint: NSLayoutConstraint?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -58,27 +74,33 @@ class MessageCell: UITableViewCell {
         contentView.addSubview(bubbleView)
         bubbleView.addSubview(messageLabel)
         contentView.addSubview(timeLabel)
-        contentView.addSubview(fileButton)
+        bubbleView.addSubview(fileButton)
         
         [bubbleView, messageLabel, timeLabel, fileButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
+        leadingConstraint = bubbleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)
+        trailingConstraint = bubbleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
+        timeLabelLeadingConstraint = timeLabel.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor)
+        timeLabelTrailingConstraint = timeLabel.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor)
+        
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 8),
-            messageLabel.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -8),
             messageLabel.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 12),
             messageLabel.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -12),
             
+            // Updated file button constraints
+            fileButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 4),
+            fileButton.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor),
+            fileButton.trailingAnchor.constraint(lessThanOrEqualTo: bubbleView.trailingAnchor, constant: -12),
+            fileButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 30), // Changed to minimum height
+            
             bubbleView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             bubbleView.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, multiplier: 0.75),
+            bubbleView.bottomAnchor.constraint(equalTo: fileButton.bottomAnchor, constant: 8), // Fix bubble view bottom
             
             timeLabel.topAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: 2),
             timeLabel.heightAnchor.constraint(equalToConstant: 15),
-            timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
-            
-            fileButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 4),
-            fileButton.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor),
-            fileButton.heightAnchor.constraint(equalToConstant: 30),
-            fileButton.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -8)
+            timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
         ])
         
         fileButton.addTarget(self, action: #selector(fileButtonTapped), for: .touchUpInside)
@@ -88,18 +110,28 @@ class MessageCell: UITableViewCell {
         messageLabel.text = message.content
         timeLabel.text = message.formattedTime
         
+        // Deactivate all constraints first
+        leadingConstraint?.isActive = false
+        trailingConstraint?.isActive = false
+        timeLabelLeadingConstraint?.isActive = false
+        timeLabelTrailingConstraint?.isActive = false
+        
         if isFromCurrentUser {
             bubbleView.backgroundColor = .systemBlue
-            bubbleView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 40).isActive = true
-            bubbleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+            trailingConstraint?.isActive = true
+            leadingConstraint?.isActive = false
+            bubbleView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -8).isActive = true
             timeLabel.textAlignment = .right
-            timeLabel.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor).isActive = true
+            timeLabelTrailingConstraint?.isActive = true
+            timeLabelLeadingConstraint?.isActive = false
         } else {
             bubbleView.backgroundColor = .systemGray
-            bubbleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
-            bubbleView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -40).isActive = true
+            leadingConstraint?.isActive = true
+            trailingConstraint?.isActive = false
+            bubbleView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 8).isActive = true
             timeLabel.textAlignment = .left
-            timeLabel.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor).isActive = true
+            timeLabelLeadingConstraint?.isActive = true
+            timeLabelTrailingConstraint?.isActive = false
         }
         
         if let fileInfo = message.fileInfo {
@@ -109,6 +141,8 @@ class MessageCell: UITableViewCell {
         } else {
             fileButton.isHidden = true
         }
+        
+        layoutIfNeeded()
     }
     
     @objc private func fileButtonTapped() {
@@ -138,6 +172,24 @@ class ViewController: UIViewController {
         indicator.hidesWhenStopped = true
         return indicator
     }()
+    private let refreshControl = UIRefreshControl()
+    private var isLoadingHistory = false
+    
+    private let inputContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = .secondarySystemBackground
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
+        // Добавляем тень
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: -2)
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowRadius = 4
+        return view
+    }()
+    
+    private var inputContainerBottomConstraint: NSLayoutConstraint?
+    private var keyboardHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,6 +198,16 @@ class ViewController: UIViewController {
         loadMessages()
         setupNavigationBar()
         addLongPressGesture() // добавляем длинное нажатие для удаления сообщения
+        setupRefreshControl()
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshMessages), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func refreshMessages() {
+        loadMessages()
     }
     
     private func setupUI() {
@@ -161,16 +223,32 @@ class ViewController: UIViewController {
         
         let inputContainer = UIView()
         inputContainer.backgroundColor = .secondarySystemBackground
+        inputContainer.layer.cornerRadius = 20
+        inputContainer.clipsToBounds = true
+        // Добавляем тень
+        inputContainer.layer.shadowColor = UIColor.black.cgColor
+        inputContainer.layer.shadowOffset = CGSize(width: 0, height: -2)
+        inputContainer.layer.shadowOpacity = 0.1
+        inputContainer.layer.shadowRadius = 4
         inputContainer.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(inputContainer)
         
         inputField.translatesAutoresizingMaskIntoConstraints = false
         inputField.placeholder = "Сообщение..."
-        inputField.backgroundColor = .systemBackground
-        inputField.layer.cornerRadius = 20
+        inputField.backgroundColor = .tertiarySystemBackground
+        inputField.layer.cornerRadius = 18
+        inputField.layer.masksToBounds = true
         inputField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         inputField.leftViewMode = .always
         inputContainer.addSubview(inputField)
+        
+        // Fix padding views for input field
+        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 0))
+        let rightPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 0))
+        inputField.leftView = leftPaddingView
+        inputField.rightView = rightPaddingView
+        inputField.leftViewMode = .always
+        inputField.rightViewMode = .always
         
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
@@ -183,6 +261,8 @@ class ViewController: UIViewController {
         
         [attachButton, activityIndicator].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
+        inputContainerBottomConstraint = inputContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -191,7 +271,7 @@ class ViewController: UIViewController {
             
             inputContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             inputContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            inputContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            inputContainerBottomConstraint!,
             inputContainer.heightAnchor.constraint(equalToConstant: 60),
             
             inputField.leadingAnchor.constraint(equalTo: attachButton.trailingAnchor, constant: 8),
@@ -215,8 +295,8 @@ class ViewController: UIViewController {
         
         attachButton.addTarget(self, action: #selector(attachButtonTapped), for: .touchUpInside)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(titleTapped))
-        navigationController?.navigationBar.addGestureRecognizer(tapGesture)
+        let navigationTapGesture = UITapGestureRecognizer(target: self, action: #selector(titleTapped))
+        navigationController?.navigationBar.addGestureRecognizer(navigationTapGesture)
         
         NotificationCenter.default.addObserver(self, 
                                              selector: #selector(keyboardWillShow), 
@@ -226,6 +306,61 @@ class ViewController: UIViewController {
                                              selector: #selector(keyboardWillHide), 
                                              name: UIResponder.keyboardWillHideNotification, 
                                              object: nil)
+        
+        // Add tap gesture to dismiss keyboard
+        let dismissKeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        dismissKeyboardTapGesture.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(dismissKeyboardTapGesture)
+        
+        // Анимация кнопки отправки
+        sendButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.sendButton.transform = .identity
+        })
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(notification: Notification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+              let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
+              let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {
+            return
+        }
+        
+        let keyboardHeight = keyboardFrame.height
+        self.keyboardHeight = keyboardHeight
+        
+        let bottomInset = keyboardHeight - view.safeAreaInsets.bottom
+        inputContainerBottomConstraint?.constant = -bottomInset
+        
+        let options = UIView.AnimationOptions(rawValue: curve << 16)
+        UIView.animate(withDuration: duration, delay: 0, options: options) {
+            self.view.layoutIfNeeded()
+        }
+        
+        // Scroll to bottom if needed
+        if !messages.isEmpty {
+            let lastIndex = IndexPath(row: messages.count - 1, section: 0)
+            tableView.scrollToRow(at: lastIndex, at: .bottom, animated: true)
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: Notification) {
+        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
+              let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {
+            return
+        }
+        
+        inputContainerBottomConstraint?.constant = 0
+        keyboardHeight = 0
+        
+        let options = UIView.AnimationOptions(rawValue: curve << 16)
+        UIView.animate(withDuration: duration, delay: 0, options: options) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     private func setupWebSocket() {
@@ -238,15 +373,23 @@ class ViewController: UIViewController {
     }
     
     private func loadMessages() {
+        if isLoadingHistory { return }
+        isLoadingHistory = true
+        
         NetworkManager.shared.getMessages { [weak self] result in
-            switch result {
-            case .success(let messages):
-                self?.messages = messages
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                self?.isLoadingHistory = false
+                self?.refreshControl.endRefreshing()
+                
+                switch result {
+                case .success(let messages):
+                    self?.messages = messages
                     self?.tableView.reloadData()
+                    self?.scrollToBottom(animated: true)
+                case .failure(let error):
+                    print("Error loading messages:", error)
+                    self?.showError("Не удалось загрузить сообщения")
                 }
-            case .failure(let error):
-                print("Error loading messages:", error)
             }
         }
     }
@@ -271,8 +414,24 @@ class ViewController: UIViewController {
     @objc private func sendMessage() {
         guard let text = inputField.text, !text.isEmpty else { return }
         
+        // Анимация кнопки отправки
+        UIView.animate(withDuration: 0.2, animations: {
+            self.sendButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }) { _ in
+            UIView.animate(withDuration: 0.2) {
+                self.sendButton.transform = .identity
+            }
+        }
+        
         let timestamp = ISO8601DateFormatter().string(from: Date())
         let message = Message(content: text, from: "2", to: "1", timestamp: timestamp)
+        
+        // Оптимистичное обновление UI
+        messages.append(message)
+        tableView.insertRows(at: [IndexPath(row: messages.count - 1, section: 0)], with: .automatic)
+        scrollToBottom(animated: true)
+        inputField.text = ""
+        
         sendMessageToServer(message: message)
     }
     
@@ -329,22 +488,11 @@ class ViewController: UIViewController {
     }
     
     private func showDocumentPicker() {
-        let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.data", "public.content"], in: .import)
+        let types = [UTType.data, UTType.content]
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: types, asCopy: true)
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = false
         present(documentPicker, animated: true)
-    }
-    
-    @objc private func keyboardWillShow(notification: Notification) {
-        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-        let inset = keyboardFrame.height - view.safeAreaInsets.bottom
-        tableView.contentInset.bottom = inset
-        tableView.verticalScrollIndicatorInsets.bottom = inset
-    }
-    
-    @objc private func keyboardWillHide(notification: Notification) {
-        tableView.contentInset.bottom = 0
-        tableView.verticalScrollIndicatorInsets.bottom = 0
     }
     
     private func showLoading(_ show: Bool) {
@@ -452,6 +600,12 @@ class ViewController: UIViewController {
         })
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
         present(alert, animated: true)
+    }
+    
+    private func scrollToBottom(animated: Bool) {
+        guard !messages.isEmpty else { return }
+        let indexPath = IndexPath(row: messages.count - 1, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
     }
 }
 
@@ -580,6 +734,30 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Эффект parallax для input container
+        let offset = scrollView.contentOffset.y
+        let threshold: CGFloat = 50
+        
+        if (offset > threshold) {
+            UIView.animate(withDuration: 0.3) {
+                self.inputContainer.layer.shadowOpacity = 0.1
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.inputContainer.layer.shadowOpacity = 0
+            }
+        }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendMessage()
+        return true
     }
 }
 
